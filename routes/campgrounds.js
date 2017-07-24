@@ -5,6 +5,12 @@ var bodyParser = require('body-parser');
 var camps = [
     { name: "Guatape", image: "https://farm7.staticflickr.com/6186/6090714876_44d269ed7e.jpg"},
     { name: "Arvi", image: "https://farm1.staticflickr.com/93/246477439_5ea3e472a0.jpg"},
+    { name: "Colorado", image: "https://farm7.staticflickr.com/6210/6090170567_6df55f8d83.jpg"},{ name: "Guatape", image: "https://farm7.staticflickr.com/6186/6090714876_44d269ed7e.jpg"},
+    { name: "Arvi", image: "https://farm1.staticflickr.com/93/246477439_5ea3e472a0.jpg"},
+    { name: "Colorado", image: "https://farm7.staticflickr.com/6210/6090170567_6df55f8d83.jpg"},{ name: "Guatape", image: "https://farm7.staticflickr.com/6186/6090714876_44d269ed7e.jpg"},
+    { name: "Arvi", image: "https://farm1.staticflickr.com/93/246477439_5ea3e472a0.jpg"},
+    { name: "Colorado", image: "https://farm7.staticflickr.com/6210/6090170567_6df55f8d83.jpg"},{ name: "Guatape", image: "https://farm7.staticflickr.com/6186/6090714876_44d269ed7e.jpg"},
+    { name: "Arvi", image: "https://farm1.staticflickr.com/93/246477439_5ea3e472a0.jpg"},
     { name: "Colorado", image: "https://farm7.staticflickr.com/6210/6090170567_6df55f8d83.jpg"}
 ];
 
