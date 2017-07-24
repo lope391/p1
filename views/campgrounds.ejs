@@ -1,0 +1,11 @@
+<% include partials/header %>
+
+<h1><%= title %></h1>
+<p>Welcome to <%= title %></p>
+
+<% camps.forEach(function (t) { %>
+<h4><%= t.name %></h4>
+<img src="<%= t.image %>">
+<% }) %>
+
+<% include partials/footer %>

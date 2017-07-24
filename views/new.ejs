@@ -1,0 +1,12 @@
+<% include partials/header %>
+
+<h1><%= title %></h1>
+<p>Welcome to <%= title %></p>
+
+<form action="/campgrounds" method="POST">
+    <input type="text" placeholder="name" name="campname">
+    <input type="text" placeholder="imgurl" name="campimg">
+    <button class="btn btn-default">Send!</button>
+</form>
+
+<% include partials/footer %>
