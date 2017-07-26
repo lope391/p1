@@ -1,4 +1,4 @@
-<% include partials/header %>
+<% include ../partials/header %>
 
     <div class="container">
         <div class="row">
@@ -8,13 +8,14 @@
                 <form action="/campgrounds" method="POST">
                     <input class="form-control" type="text" placeholder="name" name="campname">
                     <input class="form-control" type="text" placeholder="imgurl" name="campimg">
-                    <input class="form-control" type="text" placeholder="description" name="desc">
+                    <textarea class="form-control" placeholder="Descripcion del Lugar" cols="30" rows="10" name="desc"></textarea>
                     <button class="btn btn-default btn-block">Send!</button>
                 </form>
                 <a href="/campgrounds">Back</a>
+
             </div>
 
         </div>
     </div>
 
-<% include partials/footer %>
+<% include ../partials/footer %>

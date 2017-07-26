@@ -1,0 +1,48 @@
+<% include ../partials/header %>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <p class="lead">Camping</p>
+                <div class="list-group">
+                    <li class="list-group-item">Info 1</li>
+                    <li class="list-group-item">Info 2</li>
+                    <li class="list-group-item">Info 3</li>
+                </div>
+            </div>
+
+            <div class="col-md-9">
+                <div class="thumbnail">
+                    <img class="img-responsive" src="<%= camp.image %>" alt="imgage could not load">
+                    <div class="caption-full">
+                        <h4 class="pull-right">$9.99/night</h4>
+                        <h4 class=><a href="#"><%= camp.name %></a></h4>
+                        <p><%= camp.description %></p>
+                    </div>
+                </div>
+                <div class="well">
+                    <div class="text-right">
+                        <a class="btn btn-success btn-sm" href="/campgrounds/<%= camp._id %>/comments/new">new comment</a>
+                    </div>
+                    <% camp.comments.forEach(function (t) { %>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <%= t.author %>
+                                <span class="pull-right">10 Days Ago</span>
+                                <p><%= t.text %></p>
+                            </div>
+                        </div>
+
+                    <% }); %>
+                </div>
+
+                <form action="/campgrounds/<%= camp._id %>?_method=DELETE" method="POST">
+                    <button class="btn btn-danger">DELETE</button>
+                </form>
+
+                <a href="/campgrounds">Back</a>
+            </div>
+        </div>>
+
+<% include ../partials/footer %>
