@@ -38,7 +38,7 @@ app.use('/users', users);
 app.use('/campgrounds', campgrounds);
 
 //Uncomment to seed App
-//seedDB();
+seedDB();
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
