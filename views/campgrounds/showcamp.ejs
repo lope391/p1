@@ -43,6 +43,10 @@
 
                                 <%if(currentUser && currentUser.username === comment.author.username){%>
                                     <a href="/campgrounds/<%= camp._id %>/comments/<%= comment._id %>/edit" class="btn btn-xs btn-warning">Edit</a>
+
+                                    <form action="/campgrounds/<%= camp._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
+                                        <button class="btn btn-xs btn-danger">DELETE</button>
+                                    </form>
                                 <%}%>
 
                             </div>

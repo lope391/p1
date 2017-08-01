@@ -12,6 +12,7 @@
 .navbar-default {
     background-color: #78909c;
     border-color: #cfd8dc;
+    margin-bottom: 0;
 }
 .navbar-default .navbar-brand {
     color: #eceff1;
@@ -72,4 +73,9 @@
     background-color: #263238;
     border-color: #78909c;
     color: #eceff1;
+}
+
+.camp-home{
+    background-color: #cfd8dc;
+    height: 300px;
 }

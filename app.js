@@ -33,7 +33,7 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 //connect to mongoDB localhost
-mongoose.connect("mongodb://localhost/yelp_camp", {useMongoClient: true});
+mongoose.connect("mongodb://localhost/topicos_p1", {useMongoClient: true});
 
 //EJS view engine setup
 app.set('views', path.join(__dirname, 'views'));

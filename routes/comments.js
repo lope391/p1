@@ -53,7 +53,7 @@ router.post('/', isLoggedIn, function (req, res, next) {
 });
 
 //Edit Route
-router.get('/:comment_id/edit', function (req, res, next) {
+router.get('/:comment_id/edit', ownsComment, function (req, res, next) {
 
     Comment.findById(req.params.comment_id, function (err, comment) {
         if(!err){
@@ -68,8 +68,19 @@ router.get('/:comment_id/edit', function (req, res, next) {
 });
 
 //Edit Request
-router.put('/:comment_id', function (req, res, next) {
+router.put('/:comment_id', ownsComment, function (req, res, next) {
     Comment.findByIdAndUpdate(req.params.comment_id, req.body.comment, function (err, newComment) {
+        if(!err){
+            res.redirect('/campgrounds/' + req.params.id);
+        } else {
+            console.log("ERROR ;" + err);
+            res.redirect('/campgrounds');
+        }
+    });
+});
+
+router.delete('/:comment_id', ownsComment, function (req, res, next) {
+    Comment.findByIdAndRemove(req.params.comment_id, function (err, rmvComment) {
         if(!err){
             res.redirect('/campgrounds/' + req.params.id);
         } else {
@@ -81,9 +92,9 @@ router.put('/:comment_id', function (req, res, next) {
 
 function ownsComment(req, res, next){
     if(req.isAuthenticated()){
-        Campground.findById(req.params.id, function (err, camp) {
+        Comment.findById(req.params.comment_id, function (err, comment) {
             if(!err){
-                if(camp.author.id.equals(req.user._id)){
+                if(comment.author.id.equals(req.user._id)){
                     next();
                 } else {
                     res.redirect("back");
