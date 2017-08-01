@@ -18,28 +18,39 @@
                         <h4 class="pull-right">$9.99/night</h4>
                         <h4 class=><a href="#"><%= camp.name %></a></h4>
                         <p><%= camp.description %></p>
+                        <p><em>Submitted By: <%= camp.author.username %></em></p>
+
+                        <%if(currentUser && currentUser.username === camp.author.username){%>
+                            <a href="/campgrounds/<%= camp._id %>/edit" class="btn btn-xs btn-warning">Edit</a>
+                            <form action="/campgrounds/<%= camp._id %>?_method=DELETE" method="POST">
+                                <button class="btn btn-xs btn-danger">DELETE</button>
+                            </form>
+                        <%}%>
+
                     </div>
                 </div>
                 <div class="well">
                     <div class="text-right">
                         <a class="btn btn-success btn-sm" href="/campgrounds/<%= camp._id %>/comments/new">new comment</a>
                     </div>
-                    <% camp.comments.forEach(function (t) { %>
+                    <% camp.comments.forEach(function (comment) { %>
 
                         <div class="row">
                             <div class="col-md-12">
-                                <%= t.author %>
+                                <strong><%= comment.author.username %></strong>
                                 <span class="pull-right">10 Days Ago</span>
-                                <p><%= t.text %></p>
+                                <p><%= comment.text %></p>
+
+                                <%if(currentUser && currentUser.username === comment.author.username){%>
+                                    <a href="/campgrounds/<%= camp._id %>/comments/<%= comment._id %>/edit" class="btn btn-xs btn-warning">Edit</a>
+                                <%}%>
+
                             </div>
                         </div>
 
                     <% }); %>
-                </div>
 
-                <form action="/campgrounds/<%= camp._id %>?_method=DELETE" method="POST">
-                    <button class="btn btn-danger">DELETE</button>
-                </form>
+                </div>
 
                 <a href="/campgrounds">Back</a>
             </div>

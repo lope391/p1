@@ -1,25 +1,41 @@
 //Required dependencies
-var express = require('express'),
-    path = require('path'),
-    favicon = require('serve-favicon'),
-    logger = require('morgan'),
-    cookieParser = require('cookie-parser'),
-    bodyParser = require('body-parser'),
-    mongoose = require('mongoose'),
-    seedDB = require('./seeds');
+var express           = require('express'),
+    path              = require('path'),
+    favicon           = require('serve-favicon'),
+    logger            = require('morgan'),
+    cookieParser      = require('cookie-parser'),
+    bodyParser        = require('body-parser'),
+    mongoose          = require('mongoose'),
+    passport          = require('passport'),
+    LocalStrategy     = require('passport-local'),
+    User              = require('./models/user'),
+    seedDB            = require('./seeds');
 
-//Routes
+//import routes
 var index = require('./routes/index'),
     users = require('./routes/users'),
-    campgrounds = require('./routes/campgrounds');
+    campgrounds = require('./routes/campgrounds'),
+    search = require('./routes/search');
 
 var app = express();
 
 
-//conncect to mongoDB localhost
+//PASSPORT configuration
+app.use(require("express-session")({
+    secret: "the secretary of secrecy swallowing serendipity sizzling slowly sanctious salms",
+    resave : false,
+    saveUninitialized: false
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
+//connect to mongoDB localhost
 mongoose.connect("mongodb://localhost/yelp_camp", {useMongoClient: true});
 
-// view engine setup
+//EJS view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
@@ -36,9 +52,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/users', users);
 app.use('/campgrounds', campgrounds);
+app.use('/search', search);
 
 //Uncomment to seed App
-seedDB();
+//seedDB();
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

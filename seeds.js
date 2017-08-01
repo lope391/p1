@@ -40,34 +40,34 @@ function seedDB() {
                         Campground.create(t, function (err, camp) {
                             if(!err){
 
-                                //Add comments
-                                Comment.create(
-                                    {
-                                        text: 'You think water moves fast? You should see ice. It moves like it has a mind. Like it knows it killed the world once and got a taste for murder.I love this campground',
-                                        author: 'Sammy J'
-                                    }, function (err, comment) {
-                                        if(!err){
-                                            camp.comments.push(comment);
-                                            camp.save();
-                                        }else{
-                                            console.log('ERROR: '+err);
-                                        }
-                                    }
-                                );
-
-                                Comment.create(
-                                    {
-                                        text: 'Your bones don\'t break, mine do. That\'s clear. Your cells react to bacteria and viruses differently than mine. You don\'t get sick, I do. That\'s also clear.',
-                                        author: 'Also Sammy J'
-                                    }, function (err, comment) {
-                                        if(!err){
-                                            camp.comments.push(comment);
-                                            camp.save();
-                                        }else{
-                                            console.log('ERROR: '+err);
-                                        }
-                                    }
-                                );
+                                // //Add comments
+                                // Comment.create(
+                                //     {
+                                //         text: 'You think water moves fast? You should see ice. It moves like it has a mind. Like it knows it killed the world once and got a taste for murder.I love this campground',
+                                //         author: 'Sammy J'
+                                //     }, function (err, comment) {
+                                //         if(!err){
+                                //             camp.comments.push(comment);
+                                //             camp.save();
+                                //         }else{
+                                //             console.log('ERROR: '+err);
+                                //         }
+                                //     }
+                                // );
+                                //
+                                // Comment.create(
+                                //     {
+                                //         text: 'Your bones don\'t break, mine do. That\'s clear. Your cells react to bacteria and viruses differently than mine. You don\'t get sick, I do. That\'s also clear.',
+                                //         author: 'Also Sammy J'
+                                //     }, function (err, comment) {
+                                //         if(!err){
+                                //             camp.comments.push(comment);
+                                //             camp.save();
+                                //         }else{
+                                //             console.log('ERROR: '+err);
+                                //         }
+                                //     }
+                                // );
 
 
                             } else {
