@@ -12,9 +12,7 @@ router.use(function (req, res, next) {
 /* GET home page. */
 router.get('/', function(req, res, next) {
 
-    var term = req.query.key;
-
-    Campground.find({name : term}, function (err, camps) {
+    Campground.find({'name': {$regex: ".*" + req.query.key + ".*", $options: "i" }}, function (err, camps) {
         if(!err){
             res.render("search", { title: 'Search', camps: camps})
         } else {
@@ -25,3 +23,13 @@ router.get('/', function(req, res, next) {
 });
 
 module.exports = router;
+
+// router.post("/search", function(req,res){
+//     Photo.find({'name': {$regex: "." + req.body.search + "."}}, function(err, photos){
+//         if(err){
+//             console.log(err);
+//         } else {
+//             res.render("photos/index", {photos:photos})
+//         }
+//     })
+// });
