@@ -23,13 +23,3 @@ router.get('/', function(req, res, next) {
 });
 
 module.exports = router;
-
-// router.post("/search", function(req,res){
-//     Photo.find({'name': {$regex: "." + req.body.search + "."}}, function(err, photos){
-//         if(err){
-//             console.log(err);
-//         } else {
-//             res.render("photos/index", {photos:photos})
-//         }
-//     })
-// });
