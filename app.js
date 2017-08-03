@@ -33,7 +33,9 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 //connect to mongoDB localhost
-mongoose.connect("mongodb://localhost/topicos_p1", {useMongoClient: true});
+mongoose.connect(process.env.DATABASEURL, {useMongoClient: true});
+//mongodb://lopec:eafit.2017@ds155727.mlab.com:55727/topicosp1 DB mLAB
+//mongodb://localhost/topicos_p1 DB Local
 
 //EJS view engine setup
 app.set('views', path.join(__dirname, 'views'));
