@@ -32,6 +32,7 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
+
 //connect to mongoDB localhost
 var url = process.env.DATABASEURL || 'mongodb://localhost/topicos_p1';
 mongoose.connect(url, {useMongoClient: true});
@@ -78,8 +79,10 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-app.listen(3000, function () {
-    console.log("Server is Running");
+var port = process.env.PORT || 3000;
+
+app.listen(port, function () {
+    console.log("Server is Running on port: " + port);
 });
 
 module.exports = app;
