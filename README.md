@@ -37,6 +37,7 @@ La base de la aplicación fue generada con el IDE PHPstorm.
   * Framework web Frontend: --
   * Web App Server: Embebido
   * Web Server: NGINX
+  * Link: 10.131.137.204 
   * Base de Datos: MongoDB 3.4.6
   La versión de node se manejó con nvm a la versión actual que es 8.2.1
 #### 2.3.3 Producción
@@ -46,7 +47,7 @@ La base de la aplicación fue generada con el IDE PHPstorm.
   * Framework web Backend: Node.js 8.2.1 -- Express.js 4.15.2
   * Framework web Frontend: --
   * Web App Server: Embebido
-  * Web Server: Heroku
+  * Web Server: NGINX
   * Base de Datos: MongoDB 3.2.1
   
 ## 3.Diseño
