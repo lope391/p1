@@ -318,13 +318,13 @@ La base de la aplicación fue generada con el IDE PHPstorm.
       Servicio Web: Elimina el comentario identificado solo si este le pertenece al usuario loggeado.
       */
 
-/* URI: /search?key=""
-      METODO: GET
-      DATA REQUEST:
-      user:{
-        _id: {type: mongoose.Schema.Types.ObjectId, ref:"User"}
-        username: String
-      }
-      DATA RESPONSE: Datos HTML EJS Busqueda.
-      Servicio Web: Busca entre los campamentos utilizando el atributo "key" del query
-      */
+    /* URI: /search?key=""
+          METODO: GET
+          DATA REQUEST:
+          user:{
+            _id: {type: mongoose.Schema.Types.ObjectId, ref:"User"}
+            username: String
+          }
+          DATA RESPONSE: Datos HTML EJS Busqueda.
+          Servicio Web: Busca entre los campamentos utilizando el atributo "key" del query
+          */
