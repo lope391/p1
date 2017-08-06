@@ -91,77 +91,230 @@ La base de la aplicación fue generada con el IDE PHPstorm.
 
     /* URI: /
       METODO: GET
+      DATA REQUEST:
+      user:{
+        _id: {type: mongoose.Schema.Types.ObjectId, ref:"User"}
+        username: String
+      }
+      DATA RESPONSE: Datos HTML EJS home.
       Servicio Web: Muestra el home de la pagina.
       */
+      
     /* URI: /users
       METODO: GET
+      DATA REQUEST: --
+      DATA RESPONSE: String De respuesta confirmada.
       Servicio Web: Respuesta de prueba.
       */
+      
     /* URI: /users
       METODO: POST
+      DATA REQUEST:
+      x-www-urlencoded
+      body:{
+        username: String,
+        password: String
+      }
+      DATA RESPONSE: Datos HTML EJS Vista 
       Servicio Web: Crea un nuevo usuario con la información del body y lo loggea a la pagina.
       */
+      
     /* URI: /users/new
       METODO: GET
+      DATA REQUEST: 
+      user:{
+        _id: {type: mongoose.Schema.Types.ObjectId, ref:"User"}
+        username: String
+      }
+      DATA RESPONSE: Datos HTML EJS nuevo usuario.
       Servicio Web: Muestra la forma para crear un usuario nuevo.
       */
+      
     /* URI: /users/login
       METODO: GET
+      DATA REQUEST: 
+      user:{
+        _id: {type: mongoose.Schema.Types.ObjectId, ref:"User"}
+        username: String
+      }
+      DATA RESPONSE: Datos HTML EJS login.
       Servicio Web: Muestra la forma para ingresar a la pagina con un usuario existente.
       */
+      
     /* URI: /users/login
       METODO: POST
+      DATA REQUEST:
+      x-www-urlencoded
+      body:{
+        username: String,
+        password: String
+      }
+      DATA RESPONSE: Datos HTML EJS campamentos.
       Servicio Web: Intenta ingresar al usuario a la plataforma con los contenidos del body.
       */
+      
     /* URI: /users/logout
       METODO: GET
+      DATA REQUEST: 
+      user:{
+        _id: {type: mongoose.Schema.Types.ObjectId, ref:"User"}
+        username: String
+      }
+      DATA RESPONSE: Datos HTML EJS campamentos.
       Servicio Web: Hace un log out del usuario actual.
       */
+      
     /* URI: /campgrounds
       METODO: GET
+      DATA REQUEST: 
+      user:{
+        _id: {type: mongoose.Schema.Types.ObjectId, ref:"User"}
+        username: String
+      }
+      DATA RESPONSE: Datos HTML EJS campamentos.
       Servicio Web: Muestra todos los campamentos guardados.
       */
+      
     /* URI: /campgrounds
       METODO: POST
+      DATA REQUEST:
+      body:{
+        campname: String,
+        campimg: String,
+        desc: String
+      }
+      user:{
+        _id: {type: mongoose.Schema.Types.ObjectId, ref:"User"}
+        username: String
+      }
+      DATA RESPONSE: Datos HTML EJS campamentos.
       Servicio Web: Añade un nuevo campamento a la base de datos solo si se ha ingresado con una cuenta valida con la información del body.
       */
+      
     /* URI: /campgrounds/new
       METODO: GET
+      DATA REQUEST: 
+      user:{
+        _id: {type: mongoose.Schema.Types.ObjectId, ref:"User"}
+        username: String
+      }
+      DATA RESPONSE: Datos HTML EJS nuevo campamento.
       Servicio Web: Muestra la forma para agregar un campamento solo si se ha ingresado con una cuenta valida.
       */
+      
     /* URI: /campgrounds/:id
       METODO: GET
+      DATA REQUEST: 
+      user:{
+        _id: {type: mongoose.Schema.Types.ObjectId, ref:"User"}
+        username: String
+      }
+      DATA RESPONSE: Datos HTML EJS Campamento identificado.
       Servicio Web: Muestra un campamento especifico y los comentarios que tenga.
       */
+      
     /* URI: /campgrounds/:id/edit
+      METODO: GET
+      DATA REQUEST: 
+      user:{
+        _id: {type: mongoose.Schema.Types.ObjectId, ref:"User"}
+        username: String
+      }
+      DATA RESPONSE: Datos HTML EJS editar Campamento identificado.
       Servicio Web: Muestra la forma para editar un campamento solo si le pertenece al usuario que este loggeado.
       */
+      
     /* URI: /campgrounds/:id
       METODO: PUT
+      DATA REQUEST:
+      body:{ 
+      campg: { 
+        name: String,
+        image: String,
+        description: String } 
+        }
+      user:{
+        _id: {type: mongoose.Schema.Types.ObjectId, ref:"User"}
+        username: String
+      }
+      DATA RESPONSE: Datos HTML EJS campamentos.
       Servicio Web: Actualiza los datos del campamento identificado con la información del body solo si le pertenece al usuario.
       */
+      
     /* URI: /campgrounds/:id
       METODO: DELETE
+      DATA REQUEST:
+      body:{ 
+        campname: String,
+        campimg: String,
+        desc: String
+      }
+      user:{
+        _id: {type: mongoose.Schema.Types.ObjectId, ref:"User"}
+        username: String
+      }
+      DATA RESPONSE: Datos HTML EJS campamentos.
       Servicio Web: Elimina el campamento identificado solo si le pertenece al usuario.
       */
+      
     /* URI: /campgrounds/:id/comments
       METODO: POST
+      DATA REQUEST:
+      body:{
+        comm: { text: String }
+      }
+      user:{
+        _id: {type: mongoose.Schema.Types.ObjectId, ref:"User"}
+        username: String
+      }
+      DATA RESPONSE: Datos HTML EJS Campamento identificado.
       Servicio Web: Crea un nuevo comentario asociado al usuario loggeado y lo añade al arreglo de comentarios del campamento identificado.
       */
+      
     /* URI: campgrounds/:id/comments/new
       METODO: GET
+      DATA REQUEST: 
+      user:{
+        _id: {type: mongoose.Schema.Types.ObjectId, ref:"User"}
+        username: String
+      }
+      DATA RESPONSE: Datos HTML EJS nuevo comentario.
       Servicio Web: Muestra la forma para agregar un nuevo comentario.
       */
+      
     /* URI: /campgrounds/:id/:comment_id/edit
       METODO: GET
+      DATA REQUEST: 
+      user:{
+        _id: {type: mongoose.Schema.Types.ObjectId, ref:"User"}
+        username: String
+      }
+      DATA RESPONSE: Datos HTML EJS editar Comentario.
       Servicio Web: Muestra la forma para editar un comentario solo si le pertenece al usuario loggeado.
       */
+      
     /* URI: /campgrounds/:id/:comment_id
       METODO: PUT
+      DATA REQUEST:
+      body:{
+        comment: { text: String }
+      }
+      user:{
+        _id: {type: mongoose.Schema.Types.ObjectId, ref:"User"}
+        username: String
+      }
+      DATA RESPONSE: Datos HTML EJS Campamento identificado.
       Servicio Web: Edita el comentario identificado con la información del body solo si este le pertenece al usuario loggeado.
       */
+      
     /* URI: /campgrounds/:id/:comment_id
       METODO: DELETE
+      DATA REQUEST:
+      user:{
+        _id: {type: mongoose.Schema.Types.ObjectId, ref:"User"}
+        username: String
+      }
+      DATA RESPONSE: Datos HTML EJS Campamento Identificado.
       Servicio Web: Elimina el comentario identificado solo si este le pertenece al usuario loggeado.
       */
 
